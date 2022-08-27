@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap");
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--background-color);
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Sawarabi Mincho", serif;
+}
+
+:root {
+  --main-color: #aa8f66;
+  --main-color-transparent: #aa8f667d;
+  --secondary-color: #ed9b40;
+  --background-color: #ffeedb;
+  --accent1-color: #61c9a8;
+  --accent2-color: #ba3b46;
+}
