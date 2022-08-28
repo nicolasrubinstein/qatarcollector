@@ -35,7 +35,11 @@ const Selector = ({ album }: { album: IAlbum }) => {
           onChange={(e) => setSelectedCountry(e.target.value)}
         >
           {countries.map((c) => {
-            return <MenuItem value={c}>{c}</MenuItem>;
+            return (
+              <MenuItem value={c} key={c}>
+                {c}
+              </MenuItem>
+            );
           })}
         </Select>
         <Select
