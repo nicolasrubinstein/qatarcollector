@@ -20,7 +20,6 @@ const SharePopup = ({ album, onClose }: { album: IAlbum; onClose: any }) => {
   useEffect(() => {
     setTimeout(() => {
       setShowMessage(false);
-      setEmail("");
     }, 8000);
   }, [showMessage]);
 
