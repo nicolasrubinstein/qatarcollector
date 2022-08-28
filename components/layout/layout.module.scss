@@ -11,11 +11,27 @@
     top: 0 !important;
     right: 0 !important;
     margin: 25px 20px 0 0px;
+    @media (max-width: 550px) {
+      opacity: 0;
+    }
   }
   .back {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     margin: 25px 0px 0 0px;
+    @media (max-width: 550px) {
+      opacity: 0;
+    }
   }
+}
+
+.authmob {
+  @media (min-width: 551px) {
+    opacity: 0;
+  }
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }

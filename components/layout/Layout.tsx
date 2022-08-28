@@ -32,6 +32,9 @@ const Layout = ({ children }: any) => {
           <div></div>
         </header>
         {children}
+        <div className={styles.authmob}>
+          <AuthButton isSignedIn={isSignedIn} />
+        </div>
       </div>
     </>
   );
