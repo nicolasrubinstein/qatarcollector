@@ -47,7 +47,11 @@ const Selector = ({ album }: { album: IAlbum }) => {
           onChange={(e) => setSelectedNumber(Number(e.target.value))}
         >
           {availableNums.map((c) => {
-            return <MenuItem value={c}>{c}</MenuItem>;
+            return (
+              <MenuItem value={c} key={c}>
+                {c}
+              </MenuItem>
+            );
           })}
         </Select>
       </section>
