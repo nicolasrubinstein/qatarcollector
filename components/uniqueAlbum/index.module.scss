@@ -1,0 +1,65 @@
+.content {
+  margin-top: 40px;
+  p {
+    text-align: center;
+  }
+  h4 {
+    text-align: center;
+  }
+}
+
+.smallBtn {
+  margin: 5px;
+}
+
+.genView {
+  width: 80%;
+  margin: auto;
+  max-width: 800px;
+}
+
+.country {
+  background-color: var(--accent1-color-transparent);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.switchArea {
+  display: flex;
+  background: var(--accent2-color-transparent);
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  max-width: 350px;
+  margin: auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.selectors {
+  width: 70vw;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.select1 {
+  min-width: 200px !important;
+}
+
+.description {
+  text-align: center;
+}
+
+.found {
+  background: rgba(0, 128, 0, 0.413);
+  height: 30px;
+  border-radius: 5px;
+}
+
+.notFound {
+  background: rgba(255, 5, 5, 0.413);
+  height: 30px;
+  border-radius: 5px;
+}

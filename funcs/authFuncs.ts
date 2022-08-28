@@ -6,6 +6,7 @@ import {
   User,
 } from "firebase/auth";
 import { provider } from "../firebase/auth";
+import { addEmail } from "../firebase/db";
 
 export const authDetector = (
   stateChanger: (val: boolean) => any,
@@ -26,10 +27,11 @@ export const signIn = (setUser: any) => {
   const auth = getAuth();
   signInWithPopup(auth, provider)
     .then((result) => {
+      addEmail(result.user.email as string);
       setUser(result.user);
     })
     .catch((error) => {
-      console.log("Error");
+      // console.log("Error");
     });
 };
 

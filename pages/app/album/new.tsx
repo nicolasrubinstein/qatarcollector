@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/newAlbum.module.scss";
+import styles from "../../../styles/newAlbum.module.scss";
 import Image from "next/image";
 import { Button, TextField } from "@mui/material";
-import { addAlbum } from "../../firebase/db";
+import { addAlbum } from "../../../firebase/db";
 import { useRouter } from "next/router";
-import { useUser } from "../../context/UserContext";
+import { useUser } from "../../../context/UserContext";
 
 const NewAlbum = () => {
   const router = useRouter();
@@ -14,7 +14,12 @@ const NewAlbum = () => {
 
   const handleSubmit = async () => {
     setLabel("Creando...");
-    await addAlbum(name, user.uid);
+    const x = await addAlbum(name, user.email);
+    if (x?.status === "err") {
+      setLabel("Crear");
+      console.log(x.message);
+      return alert("Hubo un error");
+    }
     alert(`El álbum ${name} ha sido creado`);
     router.push("/app");
   };

@@ -1,0 +1,21 @@
+.content {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pageTitle {
+  color: var(--accent2-color);
+  margin-bottom: 40px;
+}
+
+.addButton {
+  color: black !important;
+  outline-color: black !important;
+  margin-bottom: 20px !important;
+}
+
+.delete {
+  margin-bottom: 30px;
+}

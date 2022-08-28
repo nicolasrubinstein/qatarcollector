@@ -1,0 +1,56 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.popup {
+  background: white;
+  height: 500px;
+  width: 80vw;
+  margin: auto;
+  margin-top: 25px;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    margin-top: 40px !important;
+    background: var(--accent1-color);
+  }
+  h2 {
+    margin-bottom: 60px;
+  }
+}
+
+.message {
+  background: var(--accent2-color-transparent);
+  width: 80%;
+  text-align: center;
+  margin-top: 90px;
+  border-radius: 5px;
+  a {
+    text-decoration: underline;
+    cursor: pointer;
+    &:hover {
+      color: var(--accent2-color);
+    }
+  }
+}
+
+.close {
+  text-decoration: underline;
+  cursor: pointer;
+  width: 90%;
+  &:hover {
+    color: var(--accent2-color);
+  }
+}
+
+.emailInput {
+  width: 300px !important;
+}

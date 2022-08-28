@@ -5,10 +5,17 @@
   width: 100%;
   text-align: center;
   z-index: 1;
-  button {
+
+  .auth {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    margin: 25px 20px 0 0px;
+  }
+  .back {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
-    margin: 25px 0 0 20px;
+    margin: 25px 0px 0 0px;
   }
 }

@@ -25,13 +25,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [isSignedIn]);
 
   return (
-    <Layout>
+    <AuthContext.Provider value={isSignedIn}>
       <UserContext.Provider value={{ user, setUser }}>
-        <AuthContext.Provider value={isSignedIn}>
+        <Layout>
           <Component {...pageProps} />
-        </AuthContext.Provider>
+        </Layout>
       </UserContext.Provider>
-    </Layout>
+    </AuthContext.Provider>
   );
 }
 

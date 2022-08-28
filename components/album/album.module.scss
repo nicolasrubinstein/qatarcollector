@@ -5,4 +5,9 @@
   background-color: var(--accent1-color) !important;
   color: black !important;
   margin-right: 40px !important;
+  h2 {
+    width: 100%;
+    overflow-wrap: break-word;
+    color: var(--accent2-color) !important;
+  }
 }
