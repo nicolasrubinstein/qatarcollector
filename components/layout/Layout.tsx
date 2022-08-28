@@ -14,7 +14,17 @@ const Layout = ({ children }: any) => {
     <>
       <Head>
         <title>Qatar Collector</title>
-        <link rel="icon" href="/icons/favicon.ico" />
+        <meta name="google" content="notranslate" />
+        <link rel="icon" href="/icons/favicon.ico" type="image/x-icon" />
+        <meta
+        name="description"
+        content={
+          "Crea álbumes, marca las figuritas que ya coleccionaste, y compartelos con familia y amigos en tiempo real."
+        }
+      />
+      <meta name="theme-color" content="#000000" />
+      <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+      <link rel="manifest" href="/manifest.json" />
       </Head>
       <div>
         <header className={styles.header}>
