@@ -14,6 +14,7 @@ const Layout = ({ children }: any) => {
     <>
       <Head>
         <title>Qatar Collector</title>
+        <link rel="icon" href="/icons/favicon.ico" />
       </Head>
       <div>
         <header className={styles.header}>
