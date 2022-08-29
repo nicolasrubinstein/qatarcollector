@@ -6,11 +6,12 @@
   h4 {
     text-align: center;
   }
+  z-index: 0;
 }
 
 .smallBtn {
   margin: 5px !important;
-  z-index: 0.1;
+  z-index: 0 !important;
 }
 
 .genView {

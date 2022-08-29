@@ -42,7 +42,16 @@ const Layout = ({ children }: any) => {
           </div>
           <h1>Qatar collector 2022</h1>
           <div className={styles.auth}>
-            <IconButton onClick={() => setSidebarWidth("80vw")}>
+            <IconButton
+              onClick={() => {
+                setSidebarWidth("80vw");
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
               <Menu />
             </IconButton>
           </div>
