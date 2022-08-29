@@ -52,7 +52,7 @@ export const generateStickers = (countries: string[]) => {
     }
 
     for (let i = 0; i <= limit; i++) {
-      if (country !== "FWC (figuritas especiales") continue;
+      if (i === 0 && country !== "FWC (figuritas especiales)") continue;
       stickers.push({ country, number: i, tenure: 0 });
     }
   });
