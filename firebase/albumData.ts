@@ -48,7 +48,7 @@ export const generateStickers = (countries: string[]) => {
     } else if (country === "C (cocacola)") {
       limit = 8;
     } else {
-      limit = 20;
+      limit = 19;
     }
 
     for (let i = 1; i <= limit; i++) {
