@@ -3,11 +3,12 @@
   top: 0;
   right: 0;
   height: 100vh;
-  width: 50vw;
+  // width: 50vw;
   background: var(--accent2-color);
   opacity: 0.96;
   z-index: 1;
   transition: 0.5s;
+  max-width: 400px;
 }
 
 .content {

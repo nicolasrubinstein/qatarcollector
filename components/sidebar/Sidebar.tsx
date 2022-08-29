@@ -11,7 +11,10 @@ const Sidebar = ({ onClose, width }: { onClose: any; width: string }) => {
   return (
     <div
       className={styles.sidebar}
-      style={{ width, opacity: width === "0px" ? "0" : 1 }}
+      style={{
+        width,
+        display: width === "0px" ? "none" : "",
+      }}
     >
       <div className={styles.close}>
         <IconButton onClick={() => onClose()}>
