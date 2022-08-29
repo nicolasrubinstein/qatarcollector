@@ -1,0 +1,26 @@
+.sidebar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 50vw;
+  background: var(--accent2-color);
+  opacity: 0.96;
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  button {
+    margin-bottom: 40px;
+  }
+}
+
+.stats {
+  background: var(--accent1-color) !important;
+  color: black;
+}
