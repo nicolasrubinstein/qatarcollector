@@ -12,7 +12,7 @@ const SharePopup = ({ album, onClose }: { album: IAlbum; onClose: any }) => {
 
   const handleClick = async () => {
     if (!email.length || email.includes(" ")) {
-      alert("Escrive una dirección de correo válida");
+      alert("Escribe una dirección de correo válida");
       return;
     }
     setBtnText("agregando...");
@@ -49,7 +49,7 @@ const SharePopup = ({ album, onClose }: { album: IAlbum; onClose: any }) => {
         </Button>
         {showMessage && (
           <p className={styles.message}>
-            La dirección de correo ha sido agregada a la lista de colaboradores.{" "}
+            La dirección de correo ha sido agregada a la lista de colaboradores. Si la persona aún no usa QatarCollector, podrá ver el álbum una vez que inicie sesión.{" "}
             <a onClick={() => setEmail("")}>Agregar otra dirección</a>
           </p>
         )}

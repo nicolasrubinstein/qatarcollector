@@ -11,6 +11,10 @@
     top: 0 !important;
     right: 0 !important;
     margin: 25px 20px 0 0px;
+
+    @media (max-width: 850px) {
+      opacity: 0;
+    }
   }
   .back {
     position: fixed !important;
@@ -24,7 +28,7 @@
 }
 
 .authmob {
-  @media (min-width: 551px) {
+  @media (min-width: 851px) {
     opacity: 0;
   }
   width: 100vw;
