@@ -8,12 +8,19 @@ import styles from "./sharePopup.module.scss";
 const SharePopup = ({ album, onClose }: { album: IAlbum; onClose: any }) => {
   const [email, setEmail] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [btnText, setBtnText] = useState("agregar");
 
   const handleClick = async () => {
+    if (!email.length || email.includes(" ")) {
+      alert("Escrive una dirección de correo válida");
+      return;
+    }
+    setBtnText("agregando...");
     const albumRef = doc(db, "albums", album.id);
     await updateDoc(albumRef, {
-      collaboratorsEmail: arrayUnion(email),
+      collaboratorsEmail: arrayUnion(email.toLowerCase()),
     });
+    setBtnText("agregar");
     setShowMessage(true);
   };
 
@@ -38,7 +45,7 @@ const SharePopup = ({ album, onClose }: { album: IAlbum; onClose: any }) => {
         />
 
         <Button variant="contained" onClick={handleClick}>
-          Agregar
+          {btnText}
         </Button>
         {showMessage && (
           <p className={styles.message}>

@@ -13,6 +13,10 @@ const NewAlbum = () => {
   const { user } = useUser();
 
   const handleSubmit = async () => {
+    if (!name.length) {
+      alert("Escriba un nombre para el álbum");
+      return;
+    }
     setLabel("Creando...");
     const x = await addAlbum(name, user.email);
     if (x?.status === "err") {

@@ -7,11 +7,11 @@ import styles from "./album.module.scss";
 const Album = ({ album }: { album: IAlbum }) => {
   return (
     <div>
-      <Button className={styles.album}>
-        <Link href={`/app/album/${album.id}`}>
+      <Link href={`/app/album/${album.id}`}>
+        <Button className={styles.album}>
           <h2>{album.name}</h2>
-        </Link>
-      </Button>
+        </Button>
+      </Link>
     </div>
   );
 };

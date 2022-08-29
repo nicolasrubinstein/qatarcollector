@@ -11,12 +11,13 @@
 .popup {
   background: white;
   height: 500px;
-  width: 80vw;
+  width: 90vw;
   margin: auto;
   margin-top: 25px;
   border-radius: 3%;
   display: flex;
   flex-direction: column;
+  max-width: 800px;
   align-items: center;
   button {
     margin-top: 40px !important;
@@ -28,7 +29,7 @@
 }
 
 .message {
-  background: var(--accent2-color-transparent);
+  background: rgba(132, 217, 132, 0.737);
   width: 80%;
   text-align: center;
   margin-top: 90px;
