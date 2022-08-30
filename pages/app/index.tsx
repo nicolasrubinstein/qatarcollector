@@ -16,9 +16,11 @@ const App = () => {
   const router = useRouter();
   const { user } = useUser();
   const [sharedAlbums, setSharedAlbums] = useState<IAlbum[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (!user) return;
+    setIsLoading(true);
     const q = query(
       collection(db, "albums"),
       where("collaboratorsEmail", "array-contains", user.email)
@@ -29,6 +31,7 @@ const App = () => {
         albums.push(doc.data() as IAlbum);
       });
       setSharedAlbums(albums);
+      setIsLoading(false);
     });
   }, [user]);
 
@@ -40,7 +43,8 @@ const App = () => {
           {sharedAlbums.map((album: IAlbum) => {
             return <Album album={album} key={album.id} />;
           })}
-          {!sharedAlbums.length && (
+          {isLoading && <h3>Buscando tus álbumes...</h3>}
+          {!sharedAlbums.length && !isLoading && (
             <h3>Aún no tienes álbumes propios ni compartidos contigo.</h3>
           )}
         </ul>

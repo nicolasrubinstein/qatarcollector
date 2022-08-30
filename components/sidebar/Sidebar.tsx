@@ -24,10 +24,14 @@ const Sidebar = ({ onClose, width }: { onClose: any; width: string }) => {
 
       <section className={styles.content}>
         Próximamente
-        <Button className={styles.stats} startIcon={<Leaderboard />}>
-          Estadísticas
-        </Button>
-        <AuthButton isSignedIn={isSignedIn} />
+        {isSignedIn && (
+          <Button className={styles.stats} startIcon={<Leaderboard />}>
+            Estadísticas
+          </Button>
+        )}
+        <a onClick={() => onClose()}>
+          <AuthButton isSignedIn={isSignedIn} />
+        </a>
       </section>
     </div>
   );
