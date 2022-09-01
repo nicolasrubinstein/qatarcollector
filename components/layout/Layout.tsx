@@ -46,14 +46,17 @@ const Layout = ({ children }: any) => {
           <div className={styles.auth}>
             {isSignedIn && (
               <>
-                <div className={styles.indicator}>
-                  <div className={styles.arrow}></div>
-                  <p> ¡Mirá las estadísticas de tus álbumes!</p>
-                </div>
+                {!localStorage.getItem("dismissed") && (
+                  <div className={styles.indicator}>
+                    <div className={styles.arrow}></div>
+                    <p> ¡Mirá las estadísticas de tus álbumes!</p>
+                  </div>
+                )}
               </>
             )}
             <IconButton
               onClick={() => {
+                if (isSignedIn) localStorage.setItem("dismissed", "true");
                 setSidebarWidth("1");
                 window.scrollTo({
                   top: 0,
