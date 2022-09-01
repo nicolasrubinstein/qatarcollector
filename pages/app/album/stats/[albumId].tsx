@@ -41,7 +41,7 @@ const Stats = () => {
         <>
           <section className={styles.total}>
             <h1>Estadsticas</h1>
-            <h2>"{album?.name}"</h2>
+            <h2>&quot;{album?.name}&quot;</h2>
             <h3>Porcentaje total del álbum completado</h3>
 
             {album && (
@@ -55,7 +55,7 @@ const Stats = () => {
             <h3>Por categoría</h3>
             {countries.map((c) => {
               return (
-                <article className={styles.bar}>
+                <article className={styles.bar} key={c}>
                   <p>{c}</p>
                   {album && (
                     <LinearProgressWithLabel
