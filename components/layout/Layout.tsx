@@ -9,10 +9,10 @@ import Sidebar from "../sidebar/Sidebar";
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
-  const [sidebarWidth, setSidebarWidth] = useState("0px");
+  const [sidebarWidth, setSidebarWidth] = useState<"0" | "1">("0");
 
   const closeSidebar = () => {
-    setSidebarWidth("0px");
+    setSidebarWidth("0");
   };
   return (
     <>
@@ -30,7 +30,7 @@ const Layout = ({ children }: any) => {
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      {<Sidebar width={sidebarWidth} onClose={closeSidebar} />}
+      <Sidebar opacity={sidebarWidth} onClose={closeSidebar} />
       <div>
         <header className={styles.header}>
           <div className={styles.back}>
@@ -44,7 +44,7 @@ const Layout = ({ children }: any) => {
           <div className={styles.auth}>
             <IconButton
               onClick={() => {
-                setSidebarWidth("80vw");
+                setSidebarWidth("1");
                 window.scrollTo({
                   top: 0,
                   left: 0,
