@@ -6,10 +6,12 @@ import { useRouter } from "next/router";
 
 import Head from "next/head";
 import Sidebar from "../sidebar/Sidebar";
+import { useAuth } from "../../context/AuthContext";
 
 const Layout = ({ children }: any) => {
   const router = useRouter();
   const [sidebarWidth, setSidebarWidth] = useState<"0" | "1">("0");
+  const isSignedIn = useAuth();
 
   const closeSidebar = () => {
     setSidebarWidth("0");
@@ -42,6 +44,14 @@ const Layout = ({ children }: any) => {
           </div>
           <h1>Qatar collector 2022</h1>
           <div className={styles.auth}>
+            {isSignedIn && (
+              <>
+                <div className={styles.indicator}>
+                  <div className={styles.arrow}></div>
+                  <p> ¡Mirá las estadísticas de tus álbumes!</p>
+                </div>
+              </>
+            )}
             <IconButton
               onClick={() => {
                 setSidebarWidth("1");
