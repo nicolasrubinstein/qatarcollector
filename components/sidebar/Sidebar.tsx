@@ -1,10 +1,14 @@
 import { Close, Leaderboard } from "@mui/icons-material";
-import { Button, IconButton } from "@mui/material";
+import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import React, { useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import AuthButton from "../authButton/AuthButton";
 import styles from "./sidebar.module.scss";
 import Link from "next/link";
+import {
+  ISharedAlbumsContext,
+  useSharedAlums,
+} from "../../context/SharedAlbumsContext";
 
 const Sidebar = ({
   onClose,
@@ -14,6 +18,16 @@ const Sidebar = ({
   opacity: "0" | "1";
 }) => {
   const isSignedIn = useAuth();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { sharedAlbums } = useSharedAlums() as ISharedAlbumsContext;
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+    onClose();
+  };
 
   return (
     <>
@@ -30,11 +44,29 @@ const Sidebar = ({
         <section className={styles.content}>
           {isSignedIn && (
             <>
-              <Link href={`/app/album/${""}`}>
-                <Button className={styles.stats} startIcon={<Leaderboard />}>
-                  Estadísticas
-                </Button>
-              </Link>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                {sharedAlbums.map((a) => (
+                  <Link href={`/app/album/stats/${a.id}`}>
+                    <MenuItem onClick={handleClose}>{a.name}</MenuItem>
+                  </Link>
+                ))}
+              </Menu>
+
+              <Button
+                className={styles.stats}
+                startIcon={<Leaderboard />}
+                onClick={handleClick}
+              >
+                Estadísticas
+              </Button>
             </>
           )}
           <a onClick={() => onClose()}>

@@ -1,39 +1,20 @@
-import { Button, Fab } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import AuthButton from "../../components/authButton/AuthButton";
-import { useAuth } from "../../context/AuthContext";
+import { Fab } from "@mui/material";
+import React from "react";
 import styles from "../../styles/App.module.scss";
 import { Add } from "@mui/icons-material";
 import { useRouter } from "next/router";
-import { query, where, collection, onSnapshot } from "firebase/firestore";
-import { db } from "../../firebase/db";
 import { useUser } from "../../context/UserContext";
 import { IAlbum } from "../../interfaces/IAlbum";
 import Album from "../../components/album/Album";
+import {
+  ISharedAlbumsContext,
+  useSharedAlums,
+} from "../../context/SharedAlbumsContext";
 
 const App = () => {
-  const isSignedIn = useAuth();
   const router = useRouter();
-  const { user } = useUser();
-  const [sharedAlbums, setSharedAlbums] = useState<IAlbum[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    if (!user) return;
-    setIsLoading(true);
-    const q = query(
-      collection(db, "albums"),
-      where("collaboratorsEmail", "array-contains", user.email)
-    );
-    onSnapshot(q, (querySnapshot) => {
-      const albums: IAlbum[] = [];
-      querySnapshot.forEach((doc) => {
-        albums.push(doc.data() as IAlbum);
-      });
-      setSharedAlbums(albums);
-      setIsLoading(false);
-    });
-  }, [user]);
+  const { isLoading, sharedAlbums } = useSharedAlums() as ISharedAlbumsContext;
 
   return (
     <div>

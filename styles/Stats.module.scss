@@ -1,0 +1,32 @@
+.container {
+  margin-top: 100px;
+
+  width: 100vw;
+
+  h1,
+  h2 {
+    text-align: center;
+  }
+
+  h2 {
+    margin-bottom: 60px;
+  }
+  .total {
+    margin-bottom: 80px;
+    text-align: center;
+  }
+  .category {
+    text-align: center;
+    margin: auto;
+    width: 80vw;
+    max-width: 600px;
+  }
+}
+
+.bar {
+  margin-bottom: 40px;
+  background: green;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  padding: 10px;
+}

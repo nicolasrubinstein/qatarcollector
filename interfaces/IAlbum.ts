@@ -7,6 +7,7 @@ export interface ISticker {
 export interface IAlbum {
   id: string;
   name: string;
-  userId: string;
+  ownerId: string;
   stickers: ISticker[];
+  collaboratorsEmail: string[];
 }
