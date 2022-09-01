@@ -54,7 +54,7 @@ const Sidebar = ({
                 }}
               >
                 {sharedAlbums.map((a) => (
-                  <Link href={`/app/album/stats/${a.id}`}>
+                  <Link href={`/app/album/stats/${a.id}`} key={a.id}>
                     <MenuItem onClick={handleClose}>{a.name}</MenuItem>
                   </Link>
                 ))}
