@@ -25,8 +25,11 @@
 
 .bar {
   margin-bottom: 40px;
-  background: green;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.5);
   padding: 10px;
+}
+
+.completed {
+  background: rgba(162, 238, 162, 0.8);
 }

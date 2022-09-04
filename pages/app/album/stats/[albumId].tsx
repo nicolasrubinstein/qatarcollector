@@ -54,13 +54,19 @@ const Stats = () => {
           <section className={styles.category}>
             <h3>Por categoría</h3>
             {countries.map((c) => {
+              const countryProgress = album && getCountryProgress(album, c);
               return (
-                <article className={styles.bar} key={c}>
+                <article
+                  className={`${styles.bar} ${
+                    countryProgress === 100 && styles.completed
+                  }`}
+                  key={c}
+                >
                   <p>{c}</p>
                   {album && (
                     <LinearProgressWithLabel
                       color="error"
-                      value={getCountryProgress(album, c)}
+                      value={countryProgress as number}
                     />
                   )}
                 </article>

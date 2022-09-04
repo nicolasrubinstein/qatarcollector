@@ -21,7 +21,6 @@ const NewAlbum = () => {
     const x = await addAlbum(name, user.email);
     if (x?.status === "err") {
       setLabel("Crear");
-      console.log(x.message);
       return alert("Hubo un error");
     }
     alert(`El álbum ${name} ha sido creado`);
