@@ -7,7 +7,14 @@ import { db } from "../../../../firebase/db";
 import styles from "../../../../styles/Stats.module.scss";
 import CircularProgressWithLabel from "../../../../components/CircularProgressWithLabel";
 import LinearProgressWithLabel from "../../../../components/LinearProgressWithLabel";
-import { getAlbumProgress, getCountryProgress } from "../../../../functs";
+import {
+  getAlbumProgress,
+  getAlbumTotal,
+  getAlbumTotalWithTenureOne,
+  getCountryProgress,
+  getCountryTotal,
+  getCountryTotalWithTenure,
+} from "../../../../functs";
 import { countries } from "../../../../firebase/albumData";
 
 const Stats = () => {
@@ -42,14 +49,25 @@ const Stats = () => {
           <section className={styles.total}>
             <h1>Estadsticas</h1>
             <h2>&quot;{album?.name}&quot;</h2>
-            <h3>Porcentaje total del álbum completado</h3>
+            <div className={styles.statsSheet}>
+              <div className={styles.percentage}>
+                <h3>Porcentaje total del álbum completado:</h3>
 
-            {album && (
-              <CircularProgressWithLabel
-                value={getAlbumProgress(album as IAlbum)}
-                size={100}
-              />
-            )}
+                {album && (
+                  <>
+                    <CircularProgressWithLabel
+                      value={getAlbumProgress(album as IAlbum)}
+                      size={70}
+                    />
+                  </>
+                )}
+              </div>
+              <h3>
+                Figuritas totales: {"  "}
+                {album && getAlbumTotalWithTenureOne(album as IAlbum)}/
+                {album && getAlbumTotal(album as IAlbum)}
+              </h3>
+            </div>
           </section>
           <section className={styles.category}>
             <h3>Por categoría</h3>
@@ -64,10 +82,18 @@ const Stats = () => {
                 >
                   <p>{c}</p>
                   {album && (
-                    <LinearProgressWithLabel
-                      color="error"
-                      value={countryProgress as number}
-                    />
+                    <>
+                      <LinearProgressWithLabel
+                        color="error"
+                        value={countryProgress as number}
+                      />{" "}
+                      <div className={styles.totalCountry}>
+                        <>
+                          {getCountryTotalWithTenure(album, c)}/
+                          {getCountryTotal(album, c)}
+                        </>
+                      </div>
+                    </>
                   )}
                 </article>
               );
